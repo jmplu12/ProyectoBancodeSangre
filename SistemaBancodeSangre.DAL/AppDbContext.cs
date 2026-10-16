@@ -16,7 +16,7 @@ namespace SistemaBancodeSangre.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source=DESKTOP-GA0S0CE\\SQLEXPRESS;" +
+                "Data Source=GILBERT-ROSADO\\SQLEXPRESS;" +
                 "Initial Catalog=BDPRUEBA1;" +
                 "Integrated Security=True;" +
                 "TrustServerCertificate=True;"

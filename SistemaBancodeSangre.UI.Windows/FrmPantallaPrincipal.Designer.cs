@@ -56,6 +56,7 @@
             menuStrip1 = new MenuStrip();
             donantesToolStripMenuItem = new ToolStripMenuItem();
             registrarDonantesToolStripMenuItem = new ToolStripMenuItem();
+            evaluarDonateToolStripMenuItem = new ToolStripMenuItem();
             listaDeDonantesToolStripMenuItem = new ToolStripMenuItem();
             procesoDeSangreToolStripMenuItem = new ToolStripMenuItem();
             tomaDeMuestraToolStripMenuItem = new ToolStripMenuItem();
@@ -96,7 +97,6 @@
             solicitudesToolStripMenuItem = new ToolStripMenuItem();
             entregasToolStripMenuItem = new ToolStripMenuItem();
             panel4 = new Panel();
-            evaluarDonateToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             panelContenedor.SuspendLayout();
             panel3.SuspendLayout();
@@ -115,8 +115,9 @@
             panel1.Controls.Add(panel4);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 919);
+            panel1.Size = new Size(1539, 735);
             panel1.TabIndex = 0;
             // 
             // panelContenedor
@@ -125,9 +126,10 @@
             panelContenedor.Controls.Add(panel2);
             panelContenedor.Controls.Add(menuStrip1);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 10);
+            panelContenedor.Location = new Point(0, 8);
+            panelContenedor.Margin = new Padding(2);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1924, 909);
+            panelContenedor.Size = new Size(1539, 727);
             panelContenedor.TabIndex = 9;
             // 
             // panel3
@@ -139,18 +141,20 @@
             panel3.Controls.Add(panelcontenedor1);
             panel3.Controls.Add(panel6);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(339, 34);
+            panel3.Location = new Point(271, 31);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1585, 875);
+            panel3.Size = new Size(1268, 696);
             panel3.TabIndex = 2;
             // 
             // panel12
             // 
             panel12.BackColor = Color.SteelBlue;
             panel12.Dock = DockStyle.Left;
-            panel12.Location = new Point(0, 10);
+            panel12.Location = new Point(0, 8);
+            panel12.Margin = new Padding(2);
             panel12.Name = "panel12";
-            panel12.Size = new Size(10, 733);
+            panel12.Size = new Size(8, 582);
             panel12.TabIndex = 5;
             // 
             // panel11
@@ -158,26 +162,29 @@
             panel11.BackColor = Color.SteelBlue;
             panel11.Dock = DockStyle.Top;
             panel11.Location = new Point(0, 0);
+            panel11.Margin = new Padding(2);
             panel11.Name = "panel11";
-            panel11.Size = new Size(1575, 10);
+            panel11.Size = new Size(1260, 8);
             panel11.TabIndex = 4;
             // 
             // panel10
             // 
             panel10.BackColor = Color.SteelBlue;
             panel10.Dock = DockStyle.Bottom;
-            panel10.Location = new Point(0, 743);
+            panel10.Location = new Point(0, 590);
+            panel10.Margin = new Padding(2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(1575, 10);
+            panel10.Size = new Size(1260, 8);
             panel10.TabIndex = 3;
             // 
             // panel9
             // 
             panel9.BackColor = Color.SteelBlue;
             panel9.Dock = DockStyle.Right;
-            panel9.Location = new Point(1575, 0);
+            panel9.Location = new Point(1260, 0);
+            panel9.Margin = new Padding(2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(10, 753);
+            panel9.Size = new Size(8, 598);
             panel9.TabIndex = 2;
             // 
             // panelcontenedor1
@@ -185,8 +192,9 @@
             panelcontenedor1.BackColor = Color.White;
             panelcontenedor1.Dock = DockStyle.Fill;
             panelcontenedor1.Location = new Point(0, 0);
+            panelcontenedor1.Margin = new Padding(2);
             panelcontenedor1.Name = "panelcontenedor1";
-            panelcontenedor1.Size = new Size(1585, 753);
+            panelcontenedor1.Size = new Size(1268, 598);
             panelcontenedor1.TabIndex = 1;
             // 
             // panel6
@@ -194,9 +202,10 @@
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(panel7);
             panel6.Dock = DockStyle.Bottom;
-            panel6.Location = new Point(0, 753);
+            panel6.Location = new Point(0, 598);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1585, 122);
+            panel6.Size = new Size(1268, 98);
             panel6.TabIndex = 0;
             // 
             // panel7
@@ -207,9 +216,10 @@
             panel7.Controls.Add(lblUsuario);
             panel7.Controls.Add(panel15);
             panel7.ForeColor = SystemColors.ActiveCaptionText;
-            panel7.Location = new Point(1123, 3);
+            panel7.Location = new Point(898, 2);
+            panel7.Margin = new Padding(2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(451, 114);
+            panel7.Size = new Size(361, 92);
             panel7.TabIndex = 2;
             // 
             // lblUsuario
@@ -217,9 +227,10 @@
             lblUsuario.BackColor = Color.Transparent;
             lblUsuario.BorderStyle = BorderStyle.FixedSingle;
             lblUsuario.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsuario.Location = new Point(103, 26);
+            lblUsuario.Location = new Point(82, 21);
+            lblUsuario.Margin = new Padding(2, 0, 2, 0);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(332, 72);
+            lblUsuario.Size = new Size(266, 58);
             lblUsuario.TabIndex = 1;
             lblUsuario.TextAlign = ContentAlignment.MiddleCenter;
             lblUsuario.Click += lblUsuario_Click;
@@ -229,16 +240,18 @@
             panel15.Controls.Add(label1);
             panel15.Dock = DockStyle.Left;
             panel15.Location = new Point(0, 0);
+            panel15.Margin = new Padding(2);
             panel15.Name = "panel15";
-            panel15.Size = new Size(96, 112);
+            panel15.Size = new Size(77, 90);
             panel15.TabIndex = 1;
             // 
             // label1
             // 
             label1.Image = (Image)resources.GetObject("label1.Image");
-            label1.Location = new Point(12, 11);
+            label1.Location = new Point(10, 9);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(67, 97);
+            label1.Size = new Size(54, 78);
             label1.TabIndex = 0;
             // 
             // panel2
@@ -254,18 +267,20 @@
             panel2.Controls.Add(btnRegistrarDonates);
             panel2.Controls.Add(panel5);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 34);
+            panel2.Location = new Point(0, 31);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(339, 875);
+            panel2.Size = new Size(271, 696);
             panel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(39, 547);
+            pictureBox1.Location = new Point(31, 438);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(237, 190);
+            pictureBox1.Size = new Size(190, 148);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -275,18 +290,20 @@
             panel14.BackColor = Color.SteelBlue;
             panel14.BorderStyle = BorderStyle.FixedSingle;
             panel14.Dock = DockStyle.Bottom;
-            panel14.Location = new Point(10, 743);
+            panel14.Location = new Point(8, 590);
+            panel14.Margin = new Padding(2);
             panel14.Name = "panel14";
-            panel14.Size = new Size(329, 10);
+            panel14.Size = new Size(263, 8);
             panel14.TabIndex = 7;
             // 
             // panel13
             // 
             panel13.BackColor = Color.SteelBlue;
             panel13.Dock = DockStyle.Top;
-            panel13.Location = new Point(10, 0);
+            panel13.Location = new Point(8, 0);
+            panel13.Margin = new Padding(2);
             panel13.Name = "panel13";
-            panel13.Size = new Size(329, 10);
+            panel13.Size = new Size(263, 8);
             panel13.TabIndex = 6;
             // 
             // panel8
@@ -294,9 +311,10 @@
             panel8.BackColor = Color.SlateGray;
             panel8.Controls.Add(btnCerarrseccion);
             panel8.Dock = DockStyle.Bottom;
-            panel8.Location = new Point(10, 753);
+            panel8.Location = new Point(8, 598);
+            panel8.Margin = new Padding(2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(329, 122);
+            panel8.Size = new Size(263, 98);
             panel8.TabIndex = 5;
             // 
             // btnCerarrseccion
@@ -306,11 +324,12 @@
             btnCerarrseccion.ForeColor = Color.White;
             btnCerarrseccion.Image = (Image)resources.GetObject("btnCerarrseccion.Image");
             btnCerarrseccion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerarrseccion.Location = new Point(29, 40);
+            btnCerarrseccion.Location = new Point(23, 32);
+            btnCerarrseccion.Margin = new Padding(2);
             btnCerarrseccion.Name = "btnCerarrseccion";
-            btnCerarrseccion.Size = new Size(221, 60);
+            btnCerarrseccion.Size = new Size(177, 48);
             btnCerarrseccion.TabIndex = 0;
-            btnCerarrseccion.Text = "         Cerrar sección ";
+            btnCerarrseccion.Text = "         Cerrar sesión";
             btnCerarrseccion.UseVisualStyleBackColor = true;
             btnCerarrseccion.Click += btnCerarrseccion_Click_1;
             // 
@@ -321,9 +340,10 @@
             btnAgendarCitas.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnAgendarCitas.Image = (Image)resources.GetObject("btnAgendarCitas.Image");
             btnAgendarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgendarCitas.Location = new Point(11, 278);
+            btnAgendarCitas.Location = new Point(9, 222);
+            btnAgendarCitas.Margin = new Padding(2);
             btnAgendarCitas.Name = "btnAgendarCitas";
-            btnAgendarCitas.Size = new Size(321, 125);
+            btnAgendarCitas.Size = new Size(257, 100);
             btnAgendarCitas.TabIndex = 4;
             btnAgendarCitas.Text = "Agendar Citas";
             btnAgendarCitas.UseVisualStyleBackColor = false;
@@ -336,11 +356,12 @@
             btnConfiGu.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnConfiGu.Image = (Image)resources.GetObject("btnConfiGu.Image");
             btnConfiGu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnConfiGu.Location = new Point(11, 408);
+            btnConfiGu.Location = new Point(9, 326);
+            btnConfiGu.Margin = new Padding(2);
             btnConfiGu.Name = "btnConfiGu";
-            btnConfiGu.Size = new Size(321, 125);
+            btnConfiGu.Size = new Size(257, 100);
             btnConfiGu.TabIndex = 3;
-            btnConfiGu.Text = "Configuracion";
+            btnConfiGu.Text = "Configuración";
             btnConfiGu.UseVisualStyleBackColor = false;
             btnConfiGu.Click += btnConfiGu_Click;
             // 
@@ -351,11 +372,12 @@
             BtnNuevaDonacion.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point);
             BtnNuevaDonacion.Image = (Image)resources.GetObject("BtnNuevaDonacion.Image");
             BtnNuevaDonacion.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnNuevaDonacion.Location = new Point(11, 147);
+            BtnNuevaDonacion.Location = new Point(9, 118);
+            BtnNuevaDonacion.Margin = new Padding(2);
             BtnNuevaDonacion.Name = "BtnNuevaDonacion";
-            BtnNuevaDonacion.Size = new Size(321, 125);
+            BtnNuevaDonacion.Size = new Size(257, 100);
             BtnNuevaDonacion.TabIndex = 2;
-            BtnNuevaDonacion.Text = "     Nueva Donacion";
+            BtnNuevaDonacion.Text = "     Nueva Donación";
             BtnNuevaDonacion.UseVisualStyleBackColor = false;
             BtnNuevaDonacion.Click += BtnNuevaDonacion_Click;
             // 
@@ -366,9 +388,10 @@
             btnRegistrarDonates.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnRegistrarDonates.Image = (Image)resources.GetObject("btnRegistrarDonates.Image");
             btnRegistrarDonates.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegistrarDonates.Location = new Point(11, 17);
+            btnRegistrarDonates.Location = new Point(9, 14);
+            btnRegistrarDonates.Margin = new Padding(2);
             btnRegistrarDonates.Name = "btnRegistrarDonates";
-            btnRegistrarDonates.Size = new Size(321, 125);
+            btnRegistrarDonates.Size = new Size(257, 100);
             btnRegistrarDonates.TabIndex = 1;
             btnRegistrarDonates.Text = "      Registrar Donantes";
             btnRegistrarDonates.UseVisualStyleBackColor = false;
@@ -379,8 +402,9 @@
             panel5.BackColor = Color.SteelBlue;
             panel5.Dock = DockStyle.Left;
             panel5.Location = new Point(0, 0);
+            panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(10, 875);
+            panel5.Size = new Size(8, 696);
             panel5.TabIndex = 0;
             // 
             // menuStrip1
@@ -390,7 +414,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { donantesToolStripMenuItem, procesoDeSangreToolStripMenuItem, donacionesToolStripMenuItem, almacenamientoToolStripMenuItem, procesarSolicitudesToolStripMenuItem, informesToolStripMenuItem, ayudaToolStripMenuItem, ManttoolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1924, 34);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(1539, 31);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -399,21 +424,28 @@
             donantesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarDonantesToolStripMenuItem, listaDeDonantesToolStripMenuItem });
             donantesToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             donantesToolStripMenuItem.Name = "donantesToolStripMenuItem";
-            donantesToolStripMenuItem.Size = new Size(201, 30);
+            donantesToolStripMenuItem.Size = new Size(168, 27);
             donantesToolStripMenuItem.Text = "             Donantes";
             // 
             // registrarDonantesToolStripMenuItem
             // 
             registrarDonantesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { evaluarDonateToolStripMenuItem });
             registrarDonantesToolStripMenuItem.Name = "registrarDonantesToolStripMenuItem";
-            registrarDonantesToolStripMenuItem.Size = new Size(313, 34);
+            registrarDonantesToolStripMenuItem.Size = new Size(258, 28);
             registrarDonantesToolStripMenuItem.Text = "Registrar Donantes";
             registrarDonantesToolStripMenuItem.Click += registrarDonantesToolStripMenuItem_Click;
+            // 
+            // evaluarDonateToolStripMenuItem
+            // 
+            evaluarDonateToolStripMenuItem.Name = "evaluarDonateToolStripMenuItem";
+            evaluarDonateToolStripMenuItem.Size = new Size(226, 28);
+            evaluarDonateToolStripMenuItem.Text = "Evaluar Donate";
+            evaluarDonateToolStripMenuItem.Click += evaluarDonateToolStripMenuItem_Click;
             // 
             // listaDeDonantesToolStripMenuItem
             // 
             listaDeDonantesToolStripMenuItem.Name = "listaDeDonantesToolStripMenuItem";
-            listaDeDonantesToolStripMenuItem.Size = new Size(313, 34);
+            listaDeDonantesToolStripMenuItem.Size = new Size(258, 28);
             listaDeDonantesToolStripMenuItem.Text = "Lista de Donantes";
             listaDeDonantesToolStripMenuItem.Click += listaDeDonantesToolStripMenuItem_Click;
             // 
@@ -422,21 +454,21 @@
             procesoDeSangreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tomaDeMuestraToolStripMenuItem, analisisDeSangreToolStripMenuItem, procesarSangreToolStripMenuItem });
             procesoDeSangreToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             procesoDeSangreToolStripMenuItem.Name = "procesoDeSangreToolStripMenuItem";
-            procesoDeSangreToolStripMenuItem.Size = new Size(253, 30);
+            procesoDeSangreToolStripMenuItem.Size = new Size(210, 27);
             procesoDeSangreToolStripMenuItem.Text = "      Proceso de Sangre";
             // 
             // tomaDeMuestraToolStripMenuItem
             // 
             tomaDeMuestraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultaMuestraToolStripMenuItem });
             tomaDeMuestraToolStripMenuItem.Name = "tomaDeMuestraToolStripMenuItem";
-            tomaDeMuestraToolStripMenuItem.Size = new Size(299, 34);
+            tomaDeMuestraToolStripMenuItem.Size = new Size(245, 28);
             tomaDeMuestraToolStripMenuItem.Text = "Toma de Muestra";
             tomaDeMuestraToolStripMenuItem.Click += tomaDeMuestraToolStripMenuItem_Click;
             // 
             // consultaMuestraToolStripMenuItem
             // 
             consultaMuestraToolStripMenuItem.Name = "consultaMuestraToolStripMenuItem";
-            consultaMuestraToolStripMenuItem.Size = new Size(298, 34);
+            consultaMuestraToolStripMenuItem.Size = new Size(244, 28);
             consultaMuestraToolStripMenuItem.Text = "Consulta Muestra";
             consultaMuestraToolStripMenuItem.Click += consultaMuestraToolStripMenuItem_Click;
             // 
@@ -444,14 +476,14 @@
             // 
             analisisDeSangreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaAnaliticaDeSangreToolStripMenuItem });
             analisisDeSangreToolStripMenuItem.Name = "analisisDeSangreToolStripMenuItem";
-            analisisDeSangreToolStripMenuItem.Size = new Size(299, 34);
+            analisisDeSangreToolStripMenuItem.Size = new Size(245, 28);
             analisisDeSangreToolStripMenuItem.Text = "Analisis de sangre";
             analisisDeSangreToolStripMenuItem.Click += analisisDeSangreToolStripMenuItem_Click;
             // 
             // listaAnaliticaDeSangreToolStripMenuItem
             // 
             listaAnaliticaDeSangreToolStripMenuItem.Name = "listaAnaliticaDeSangreToolStripMenuItem";
-            listaAnaliticaDeSangreToolStripMenuItem.Size = new Size(369, 34);
+            listaAnaliticaDeSangreToolStripMenuItem.Size = new Size(302, 28);
             listaAnaliticaDeSangreToolStripMenuItem.Text = "Lista Analitica de sangre";
             listaAnaliticaDeSangreToolStripMenuItem.Click += listaAnaliticaDeSangreToolStripMenuItem_Click;
             // 
@@ -459,14 +491,14 @@
             // 
             procesarSangreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoDeSangreProcesadaToolStripMenuItem });
             procesarSangreToolStripMenuItem.Name = "procesarSangreToolStripMenuItem";
-            procesarSangreToolStripMenuItem.Size = new Size(299, 34);
+            procesarSangreToolStripMenuItem.Size = new Size(245, 28);
             procesarSangreToolStripMenuItem.Text = "Procesar Sangre";
             procesarSangreToolStripMenuItem.Click += procesarSangreToolStripMenuItem_Click;
             // 
             // listadoDeSangreProcesadaToolStripMenuItem
             // 
             listadoDeSangreProcesadaToolStripMenuItem.Name = "listadoDeSangreProcesadaToolStripMenuItem";
-            listadoDeSangreProcesadaToolStripMenuItem.Size = new Size(407, 34);
+            listadoDeSangreProcesadaToolStripMenuItem.Size = new Size(335, 28);
             listadoDeSangreProcesadaToolStripMenuItem.Text = "Listado de sangre Procesada";
             listadoDeSangreProcesadaToolStripMenuItem.Click += listadoDeSangreProcesadaToolStripMenuItem_Click;
             // 
@@ -475,20 +507,20 @@
             donacionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaDonaciónToolStripMenuItem, listadoDeDonacionesToolStripMenuItem });
             donacionesToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             donacionesToolStripMenuItem.Name = "donacionesToolStripMenuItem";
-            donacionesToolStripMenuItem.Size = new Size(181, 30);
+            donacionesToolStripMenuItem.Size = new Size(150, 27);
             donacionesToolStripMenuItem.Text = "      Donaciones";
             // 
             // nuevaDonaciónToolStripMenuItem
             // 
             nuevaDonaciónToolStripMenuItem.Name = "nuevaDonaciónToolStripMenuItem";
-            nuevaDonaciónToolStripMenuItem.Size = new Size(344, 34);
+            nuevaDonaciónToolStripMenuItem.Size = new Size(283, 28);
             nuevaDonaciónToolStripMenuItem.Text = "Nueva Donación";
             nuevaDonaciónToolStripMenuItem.Click += nuevaDonaciónToolStripMenuItem_Click;
             // 
             // listadoDeDonacionesToolStripMenuItem
             // 
             listadoDeDonacionesToolStripMenuItem.Name = "listadoDeDonacionesToolStripMenuItem";
-            listadoDeDonacionesToolStripMenuItem.Size = new Size(344, 34);
+            listadoDeDonacionesToolStripMenuItem.Size = new Size(283, 28);
             listadoDeDonacionesToolStripMenuItem.Text = "Listado de Donaciones";
             listadoDeDonacionesToolStripMenuItem.Click += listadoDeDonacionesToolStripMenuItem_Click;
             // 
@@ -497,27 +529,27 @@
             almacenamientoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { controlDeInventarioToolStripMenuItem, reservasDeSangreToolStripMenuItem, inventarioToolStripMenuItem });
             almacenamientoToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             almacenamientoToolStripMenuItem.Name = "almacenamientoToolStripMenuItem";
-            almacenamientoToolStripMenuItem.Size = new Size(229, 30);
+            almacenamientoToolStripMenuItem.Size = new Size(188, 27);
             almacenamientoToolStripMenuItem.Text = "     Almacenamiento";
             // 
             // controlDeInventarioToolStripMenuItem
             // 
             controlDeInventarioToolStripMenuItem.Name = "controlDeInventarioToolStripMenuItem";
-            controlDeInventarioToolStripMenuItem.Size = new Size(337, 34);
+            controlDeInventarioToolStripMenuItem.Size = new Size(275, 28);
             controlDeInventarioToolStripMenuItem.Text = "Control de Inventario";
             controlDeInventarioToolStripMenuItem.Click += controlDeInventarioToolStripMenuItem_Click;
             // 
             // reservasDeSangreToolStripMenuItem
             // 
             reservasDeSangreToolStripMenuItem.Name = "reservasDeSangreToolStripMenuItem";
-            reservasDeSangreToolStripMenuItem.Size = new Size(337, 34);
+            reservasDeSangreToolStripMenuItem.Size = new Size(275, 28);
             reservasDeSangreToolStripMenuItem.Text = "Reservas de Sangre";
             reservasDeSangreToolStripMenuItem.Click += reservasDeSangreToolStripMenuItem_Click;
             // 
             // inventarioToolStripMenuItem
             // 
             inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
-            inventarioToolStripMenuItem.Size = new Size(337, 34);
+            inventarioToolStripMenuItem.Size = new Size(275, 28);
             inventarioToolStripMenuItem.Text = "Inventario";
             inventarioToolStripMenuItem.Click += inventarioToolStripMenuItem_Click;
             // 
@@ -526,28 +558,28 @@
             procesarSolicitudesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { procesarSolicitudesToolStripMenuItem1, solicitudesDeSangreToolStripMenuItem, entregaDeSangreToolStripMenuItem });
             procesarSolicitudesToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             procesarSolicitudesToolStripMenuItem.Name = "procesarSolicitudesToolStripMenuItem";
-            procesarSolicitudesToolStripMenuItem.Size = new Size(285, 30);
+            procesarSolicitudesToolStripMenuItem.Size = new Size(235, 27);
             procesarSolicitudesToolStripMenuItem.Text = "     Solicitudes y Entregas";
             procesarSolicitudesToolStripMenuItem.Click += procesarSolicitudesToolStripMenuItem_Click;
             // 
             // procesarSolicitudesToolStripMenuItem1
             // 
             procesarSolicitudesToolStripMenuItem1.Name = "procesarSolicitudesToolStripMenuItem1";
-            procesarSolicitudesToolStripMenuItem1.Size = new Size(333, 34);
+            procesarSolicitudesToolStripMenuItem1.Size = new Size(273, 28);
             procesarSolicitudesToolStripMenuItem1.Text = "Procesar Solicitudes";
             procesarSolicitudesToolStripMenuItem1.Click += procesarSolicitudesToolStripMenuItem1_Click;
             // 
             // solicitudesDeSangreToolStripMenuItem
             // 
             solicitudesDeSangreToolStripMenuItem.Name = "solicitudesDeSangreToolStripMenuItem";
-            solicitudesDeSangreToolStripMenuItem.Size = new Size(333, 34);
+            solicitudesDeSangreToolStripMenuItem.Size = new Size(273, 28);
             solicitudesDeSangreToolStripMenuItem.Text = "Solicitudes de Sangre";
             solicitudesDeSangreToolStripMenuItem.Click += solicitudesDeSangreToolStripMenuItem_Click;
             // 
             // entregaDeSangreToolStripMenuItem
             // 
             entregaDeSangreToolStripMenuItem.Name = "entregaDeSangreToolStripMenuItem";
-            entregaDeSangreToolStripMenuItem.Size = new Size(333, 34);
+            entregaDeSangreToolStripMenuItem.Size = new Size(273, 28);
             entregaDeSangreToolStripMenuItem.Text = "Entrega de Sangre";
             entregaDeSangreToolStripMenuItem.Click += entregaDeSangreToolStripMenuItem_Click;
             // 
@@ -556,48 +588,48 @@
             informesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informesDeDonantesToolStripMenuItem, informeDeSangreToolStripMenuItem, informeDeSolicitudesToolStripMenuItem, informeDeProcesarSangreToolStripMenuItem, informeAnaliticaDeSangreToolStripMenuItem, informeDeMuestraToolStripMenuItem });
             informesToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             informesToolStripMenuItem.Name = "informesToolStripMenuItem";
-            informesToolStripMenuItem.Size = new Size(167, 30);
+            informesToolStripMenuItem.Size = new Size(139, 27);
             informesToolStripMenuItem.Text = "        Informes";
             // 
             // informesDeDonantesToolStripMenuItem
             // 
             informesDeDonantesToolStripMenuItem.Name = "informesDeDonantesToolStripMenuItem";
-            informesDeDonantesToolStripMenuItem.Size = new Size(403, 34);
+            informesDeDonantesToolStripMenuItem.Size = new Size(329, 28);
             informesDeDonantesToolStripMenuItem.Text = "Informes de Donantes";
             informesDeDonantesToolStripMenuItem.Click += informesDeDonantesToolStripMenuItem_Click;
             // 
             // informeDeSangreToolStripMenuItem
             // 
             informeDeSangreToolStripMenuItem.Name = "informeDeSangreToolStripMenuItem";
-            informeDeSangreToolStripMenuItem.Size = new Size(403, 34);
+            informeDeSangreToolStripMenuItem.Size = new Size(329, 28);
             informeDeSangreToolStripMenuItem.Text = "Informe de sangre";
             informeDeSangreToolStripMenuItem.Click += informeDeSangreToolStripMenuItem_Click;
             // 
             // informeDeSolicitudesToolStripMenuItem
             // 
             informeDeSolicitudesToolStripMenuItem.Name = "informeDeSolicitudesToolStripMenuItem";
-            informeDeSolicitudesToolStripMenuItem.Size = new Size(403, 34);
+            informeDeSolicitudesToolStripMenuItem.Size = new Size(329, 28);
             informeDeSolicitudesToolStripMenuItem.Text = "Informe de Solicitudes";
             informeDeSolicitudesToolStripMenuItem.Click += informeDeSolicitudesToolStripMenuItem_Click;
             // 
             // informeDeProcesarSangreToolStripMenuItem
             // 
             informeDeProcesarSangreToolStripMenuItem.Name = "informeDeProcesarSangreToolStripMenuItem";
-            informeDeProcesarSangreToolStripMenuItem.Size = new Size(403, 34);
+            informeDeProcesarSangreToolStripMenuItem.Size = new Size(329, 28);
             informeDeProcesarSangreToolStripMenuItem.Text = "Informe Procesar Sangre";
             informeDeProcesarSangreToolStripMenuItem.Click += informeDeProcesarSangreToolStripMenuItem_Click;
             // 
             // informeAnaliticaDeSangreToolStripMenuItem
             // 
             informeAnaliticaDeSangreToolStripMenuItem.Name = "informeAnaliticaDeSangreToolStripMenuItem";
-            informeAnaliticaDeSangreToolStripMenuItem.Size = new Size(403, 34);
+            informeAnaliticaDeSangreToolStripMenuItem.Size = new Size(329, 28);
             informeAnaliticaDeSangreToolStripMenuItem.Text = "Informe Analitica de Sangre";
             informeAnaliticaDeSangreToolStripMenuItem.Click += informeAnaliticaDeSangreToolStripMenuItem_Click;
             // 
             // informeDeMuestraToolStripMenuItem
             // 
             informeDeMuestraToolStripMenuItem.Name = "informeDeMuestraToolStripMenuItem";
-            informeDeMuestraToolStripMenuItem.Size = new Size(403, 34);
+            informeDeMuestraToolStripMenuItem.Size = new Size(329, 28);
             informeDeMuestraToolStripMenuItem.Text = "Informe de Muestra";
             informeDeMuestraToolStripMenuItem.Click += informeDeMuestraToolStripMenuItem_Click;
             // 
@@ -605,7 +637,7 @@
             // 
             ayudaToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            ayudaToolStripMenuItem.Size = new Size(128, 30);
+            ayudaToolStripMenuItem.Size = new Size(106, 27);
             ayudaToolStripMenuItem.Text = "     Ayuda ";
             // 
             // ManttoolStripMenuItem
@@ -613,84 +645,84 @@
             ManttoolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem, usuariosToolStripMenuItem, donantesToolStripMenuItem1, donacionesToolStripMenuItem1, analisisToolStripMenuItem, procesamientosToolStripMenuItem, inventarioToolStripMenuItem1, muestrasToolStripMenuItem, solicitudesToolStripMenuItem, entregasToolStripMenuItem });
             ManttoolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ManttoolStripMenuItem.Name = "ManttoolStripMenuItem";
-            ManttoolStripMenuItem.Size = new Size(194, 30);
+            ManttoolStripMenuItem.Size = new Size(159, 27);
             ManttoolStripMenuItem.Text = "Mantenimientos";
             // 
             // empleadosToolStripMenuItem
             // 
             empleadosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaDeEmpleadosToolStripMenuItem });
             empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            empleadosToolStripMenuItem.Size = new Size(274, 34);
+            empleadosToolStripMenuItem.Size = new Size(226, 28);
             empleadosToolStripMenuItem.Text = "Empleados";
             empleadosToolStripMenuItem.Click += empleadosToolStripMenuItem_Click;
             // 
             // listaDeEmpleadosToolStripMenuItem
             // 
             listaDeEmpleadosToolStripMenuItem.Name = "listaDeEmpleadosToolStripMenuItem";
-            listaDeEmpleadosToolStripMenuItem.Size = new Size(314, 34);
+            listaDeEmpleadosToolStripMenuItem.Size = new Size(258, 28);
             listaDeEmpleadosToolStripMenuItem.Text = "Lista de Empleados";
             listaDeEmpleadosToolStripMenuItem.Click += listaDeEmpleadosToolStripMenuItem_Click;
             // 
             // usuariosToolStripMenuItem
             // 
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(274, 34);
+            usuariosToolStripMenuItem.Size = new Size(226, 28);
             usuariosToolStripMenuItem.Text = "Usuarios";
             usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
             // 
             // donantesToolStripMenuItem1
             // 
             donantesToolStripMenuItem1.Name = "donantesToolStripMenuItem1";
-            donantesToolStripMenuItem1.Size = new Size(274, 34);
+            donantesToolStripMenuItem1.Size = new Size(226, 28);
             donantesToolStripMenuItem1.Text = "Donantes";
             donantesToolStripMenuItem1.Click += donantesToolStripMenuItem1_Click;
             // 
             // donacionesToolStripMenuItem1
             // 
             donacionesToolStripMenuItem1.Name = "donacionesToolStripMenuItem1";
-            donacionesToolStripMenuItem1.Size = new Size(274, 34);
+            donacionesToolStripMenuItem1.Size = new Size(226, 28);
             donacionesToolStripMenuItem1.Text = "Donaciones";
             donacionesToolStripMenuItem1.Click += donacionesToolStripMenuItem1_Click;
             // 
             // analisisToolStripMenuItem
             // 
             analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
-            analisisToolStripMenuItem.Size = new Size(274, 34);
+            analisisToolStripMenuItem.Size = new Size(226, 28);
             analisisToolStripMenuItem.Text = "Analisis";
             analisisToolStripMenuItem.Click += analisisToolStripMenuItem_Click;
             // 
             // procesamientosToolStripMenuItem
             // 
             procesamientosToolStripMenuItem.Name = "procesamientosToolStripMenuItem";
-            procesamientosToolStripMenuItem.Size = new Size(274, 34);
+            procesamientosToolStripMenuItem.Size = new Size(226, 28);
             procesamientosToolStripMenuItem.Text = "Procesamientos";
             procesamientosToolStripMenuItem.Click += procesamientosToolStripMenuItem_Click;
             // 
             // inventarioToolStripMenuItem1
             // 
             inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
-            inventarioToolStripMenuItem1.Size = new Size(274, 34);
+            inventarioToolStripMenuItem1.Size = new Size(226, 28);
             inventarioToolStripMenuItem1.Text = "Inventario";
             inventarioToolStripMenuItem1.Click += inventarioToolStripMenuItem1_Click;
             // 
             // muestrasToolStripMenuItem
             // 
             muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
-            muestrasToolStripMenuItem.Size = new Size(274, 34);
+            muestrasToolStripMenuItem.Size = new Size(226, 28);
             muestrasToolStripMenuItem.Text = "Muestras";
             muestrasToolStripMenuItem.Click += muestrasToolStripMenuItem_Click;
             // 
             // solicitudesToolStripMenuItem
             // 
             solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
-            solicitudesToolStripMenuItem.Size = new Size(274, 34);
+            solicitudesToolStripMenuItem.Size = new Size(226, 28);
             solicitudesToolStripMenuItem.Text = "Solicitudes";
             solicitudesToolStripMenuItem.Click += solicitudesToolStripMenuItem_Click;
             // 
             // entregasToolStripMenuItem
             // 
             entregasToolStripMenuItem.Name = "entregasToolStripMenuItem";
-            entregasToolStripMenuItem.Size = new Size(274, 34);
+            entregasToolStripMenuItem.Size = new Size(226, 28);
             entregasToolStripMenuItem.Text = "Entregas";
             entregasToolStripMenuItem.Click += entregasToolStripMenuItem_Click;
             // 
@@ -699,25 +731,20 @@
             panel4.BackColor = Color.SteelBlue;
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1924, 10);
+            panel4.Size = new Size(1539, 8);
             panel4.TabIndex = 7;
-            // 
-            // evaluarDonateToolStripMenuItem
-            // 
-            evaluarDonateToolStripMenuItem.Name = "evaluarDonateToolStripMenuItem";
-            evaluarDonateToolStripMenuItem.Size = new Size(275, 34);
-            evaluarDonateToolStripMenuItem.Text = "Evaluar Donate";
-            evaluarDonateToolStripMenuItem.Click += evaluarDonateToolStripMenuItem_Click;
             // 
             // FrmPantallaPrincipal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateGray;
-            ClientSize = new Size(1924, 919);
+            ClientSize = new Size(1539, 735);
             Controls.Add(panel1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(2);
             Name = "FrmPantallaPrincipal";
             WindowState = FormWindowState.Maximized;
             Load += btnCerarrseccion_Click;
