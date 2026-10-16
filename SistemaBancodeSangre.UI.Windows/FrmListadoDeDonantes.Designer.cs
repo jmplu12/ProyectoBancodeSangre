@@ -236,6 +236,7 @@
             button1.TabIndex = 40;
             button1.Text = "Informe";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // txtbuscar
             // 

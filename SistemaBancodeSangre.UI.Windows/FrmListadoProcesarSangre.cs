@@ -1,15 +1,18 @@
-﻿using System;
+﻿using SistemaBancodeSangre.BLL;
+using SistemaBancodeSangre.Entities;
+using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
-using SistemaBancodeSangre.BLL;
-using SistemaBancodeSangre.Entities;
 
 
 namespace SistemaBancodeSangre.UI.Windows
 {
     public partial class FrmListadoProcesarSangre : Form
     {
+        private PrintDocument printDoc = new PrintDocument();
+        private PrintPreviewDialog printPreview = new PrintPreviewDialog();
         private List<ProcesamientoDeSangreEntity> ListaProcesamientos =
             new List<ProcesamientoDeSangreEntity>();
 
@@ -390,5 +393,182 @@ namespace SistemaBancodeSangre.UI.Windows
         {
             BuscarProcesamientoAutomaticamente();
         }
+
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Configurar orientación horizontal para abarcar todas las columnas
+                printDoc.DefaultPageSettings.Landscape = true;
+                printDoc.PrintPage -= PrintDoc_PrintPage;
+                printDoc.PrintPage += PrintDoc_PrintPage;
+
+                // Configurar el diálogo de vista previa
+                printPreview.Document = printDoc;
+                printPreview.Width = 1150;
+                printPreview.Height = 750;
+                printPreview.StartPosition = FormStartPosition.CenterScreen;
+                printPreview.WindowState = FormWindowState.Maximized;
+
+                // Mostrar la vista previa del reporte
+                printPreview.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al generar el reporte de procesamiento de sangre:\n\n" + ex.Message,
+                    "Error de Impresión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        #region Lógica de Dibujo del Reporte
+
+        private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            // Fuentes de texto
+            Font fontTitulo = new Font("Segoe UI", 16, FontStyle.Bold);
+            Font fontSubtitulo = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+            Font fontCabecera = new Font("Segoe UI", 8F, FontStyle.Bold);
+            Font fontContenido = new Font("Segoe UI", 8F, FontStyle.Regular);
+
+            // Colores y pinceles
+            Brush brushHeaderBg = new SolidBrush(Color.FromArgb(0, 122, 204)); // Azul primario
+            Brush brushTextoBlanco = Brushes.White;
+            Brush brushTextoNegro = Brushes.Black;
+            Pen penLinea = new Pen(Color.LightGray, 1);
+
+            // Coordenadas iniciales
+            int x = 25;
+            int y = 30;
+            int anchoPagina = e.MarginBounds.Width + 150;
+
+            // 1. Encabezado del Informe
+            g.DrawString("SISTEMA BANCO DE SANGRE", fontTitulo, Brushes.DarkRed, x, y);
+            y += 28;
+            g.DrawString("REPORTE OFICIAL - PROCESAMIENTO Y FRACCIONAMIENTO DE SANGRE", new Font("Segoe UI", 11, FontStyle.Bold), brushTextoNegro, x, y);
+            y += 18;
+            g.DrawString($"Fecha y Hora de Emisión: {DateTime.Now:dd/MM/yyyy HH:mm:ss}", fontSubtitulo, Brushes.DimGray, x, y);
+            y += 22;
+
+            // Línea divisora
+            g.DrawLine(new Pen(Color.DarkRed, 2), x, y, x + anchoPagina, y);
+            y += 12;
+
+            // 2. Definición de Columnas y Anchos (Suma ~1040 px)
+            int[] anchos = { 50, 95, 95, 75, 75, 80, 110, 110, 85, 70, 75 };
+            string[] cabeceras = {
+                "ID Pro", "Estado", "F. Proceso", "T. Sangre",
+                "Vol. (ML)", "Almacén", "Responsable", "N° Sangre",
+                "Glób. Rojos", "Plasma", "Plaquetas"
+            };
+
+            // Dibujar fondo de cabecera de la tabla
+            g.FillRectangle(brushHeaderBg, x, y, anchoPagina, 26);
+
+            int xTemp = x;
+            for (int i = 0; i < cabeceras.Length; i++)
+            {
+                g.DrawString(cabeceras[i], fontCabecera, brushTextoBlanco, xTemp + 4, y + 5);
+                xTemp += anchos[i];
+            }
+
+            y += 26;
+
+            // 3. Recorrer los registros del DataGridView
+            // Reemplaza 'dgvProcesarSangre' si tu DataGridView se llama de otra forma
+            DataGridView grid = dgvProcesamientos;
+
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                xTemp = x;
+
+                // Extraer valores cell por cell
+                string idPro = GetCellValue(row, 0);
+                string estado = GetCellValue(row, 1);
+
+                string fecha = "";
+                var rawFecha = GetCellObject(row, 2);
+                if (rawFecha != null && DateTime.TryParse(rawFecha.ToString(), out DateTime dt))
+                    fecha = dt.ToString("dd/MM/yyyy");
+                else
+                    fecha = rawFecha?.ToString() ?? "";
+
+                string tipoSangre = GetCellValue(row, 3);
+                string volumen = GetCellValue(row, 4);
+                if (!string.IsNullOrEmpty(volumen) && !volumen.EndsWith("ml")) volumen += " ml";
+
+                string almacen = GetCellValue(row, 5);
+                string responsable = GetCellValue(row, 6);
+                string numSangre = GetCellValue(row, 7);
+
+                // Convertir checkboxes a texto legible (Sí / No)
+                string globulosRojos = FormatBoolValue(GetCellObject(row, 8));
+                string plasma = FormatBoolValue(GetCellObject(row, 9));
+                string plaquetas = FormatBoolValue(GetCellObject(row, 10));
+
+                string[] valores = {
+                    idPro, estado, fecha, tipoSangre,
+                    volumen, almacen, responsable, numSangre,
+                    globulosRojos, plasma, plaquetas
+                };
+
+                for (int i = 0; i < valores.Length; i++)
+                {
+                    RectangleF rectCell = new RectangleF(xTemp + 4, y + 3, anchos[i] - 5, 18);
+                    g.DrawString(valores[i], fontContenido, brushTextoNegro, rectCell);
+                    xTemp += anchos[i];
+                }
+
+                y += 20;
+                g.DrawLine(penLinea, x, y, x + anchoPagina, y);
+
+                // Control de salto de página
+                if (y > e.MarginBounds.Bottom + 50)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+            // Pie de página
+            y += 20;
+            g.DrawString($"Total de Registros Procesados: {grid.Rows.Count}", new Font("Segoe UI", 9F, FontStyle.Bold), Brushes.Black, x, y);
+        }
+
+        #endregion
+
+        #region Métodos Auxiliares de Lectura
+
+        private string GetCellValue(DataGridViewRow row, int index)
+        {
+            if (index < row.Cells.Count)
+                return row.Cells[index].Value?.ToString() ?? "";
+            return "";
+        }
+
+        private object GetCellObject(DataGridViewRow row, int index)
+        {
+            if (index < row.Cells.Count)
+                return row.Cells[index].Value;
+            return null;
+        }
+
+        private string FormatBoolValue(object cellValue)
+        {
+            if (cellValue == null || cellValue == DBNull.Value) return "No";
+            if (bool.TryParse(cellValue.ToString(), out bool result))
+            {
+                return result ? "Sí" : "No";
+            }
+            return cellValue.ToString() == "1" || cellValue.ToString().ToLower() == "true" ? "Sí" : "No";
+        }
+
+        #endregion
     }
 }

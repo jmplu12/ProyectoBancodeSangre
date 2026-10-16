@@ -32,7 +32,7 @@
             button3 = new Button();
             button2 = new Button();
             dgvProcesamientos = new DataGridView();
-            button1 = new Button();
+            btnInforme = new Button();
             txtbuscar = new TextBox();
             btnbuscar = new Button();
             panel2 = new Panel();
@@ -48,7 +48,7 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(dgvProcesamientos);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnInforme);
             panel1.Controls.Add(txtbuscar);
             panel1.Controls.Add(btnbuscar);
             panel1.Controls.Add(panel2);
@@ -92,17 +92,18 @@
             dgvProcesamientos.Size = new Size(1291, 361);
             dgvProcesamientos.TabIndex = 27;
             // 
-            // button1
+            // btnInforme
             // 
-            button1.BackColor = Color.FromArgb(192, 0, 0);
-            button1.ForeColor = SystemColors.ButtonFace;
-            button1.Location = new Point(1127, 180);
-            button1.Margin = new Padding(4, 5, 4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 38);
-            button1.TabIndex = 26;
-            button1.Text = "Informe";
-            button1.UseVisualStyleBackColor = false;
+            btnInforme.BackColor = Color.FromArgb(192, 0, 0);
+            btnInforme.ForeColor = SystemColors.ButtonFace;
+            btnInforme.Location = new Point(1165, 180);
+            btnInforme.Margin = new Padding(4, 5, 4, 5);
+            btnInforme.Name = "btnInforme";
+            btnInforme.Size = new Size(146, 38);
+            btnInforme.TabIndex = 26;
+            btnInforme.Text = "Informe";
+            btnInforme.UseVisualStyleBackColor = false;
+            btnInforme.Click += btnInforme_Click;
             // 
             // txtbuscar
             // 
@@ -177,5 +178,6 @@
         private Button btnbuscar;
         private Panel panel2;
         private Label label2;
+        private Button btnInforme;
     }
 }

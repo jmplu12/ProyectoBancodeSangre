@@ -29,14 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnInforme = new Button();
             dtgDonaciones = new DataGridView();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            txtbuscar = new TextBox();
-            btnbuscar = new Button();
-            panel2 = new Panel();
-            label2 = new Label();
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             ColApellidos = new DataGridViewTextBoxColumn();
@@ -48,6 +42,13 @@
             ColProposito = new DataGridViewTextBoxColumn();
             ColEnvase = new DataGridViewTextBoxColumn();
             DonanteID = new DataGridViewTextBoxColumn();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            txtbuscar = new TextBox();
+            btnbuscar = new Button();
+            panel2 = new Panel();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDonaciones).BeginInit();
             panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnInforme);
             panel1.Controls.Add(dtgDonaciones);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -69,6 +71,21 @@
             panel1.Size = new Size(1334, 759);
             panel1.TabIndex = 12;
             panel1.Tag = "";
+            // 
+            // btnInforme
+            // 
+            btnInforme.BackColor = Color.FromArgb(192, 0, 0);
+            btnInforme.FlatStyle = FlatStyle.Flat;
+            btnInforme.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInforme.ForeColor = SystemColors.ButtonFace;
+            btnInforme.Location = new Point(1182, 131);
+            btnInforme.Margin = new Padding(4, 5, 4, 5);
+            btnInforme.Name = "btnInforme";
+            btnInforme.Size = new Size(146, 52);
+            btnInforme.TabIndex = 41;
+            btnInforme.Text = "Informe";
+            btnInforme.UseVisualStyleBackColor = false;
+            btnInforme.Click += btnInforme_Click;
             // 
             // dtgDonaciones
             // 
@@ -86,91 +103,6 @@
             dtgDonaciones.Size = new Size(1324, 508);
             dtgDonaciones.TabIndex = 37;
             dtgDonaciones.CellContentClick += dtgDonaciones_CellContentClick;
-            // 
-            // button3
-            // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(1082, 704);
-            button3.Margin = new Padding(4, 5, 4, 5);
-            button3.Name = "button3";
-            button3.Size = new Size(229, 48);
-            button3.TabIndex = 36;
-            button3.Text = "Eliminar Registros";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(4, 704);
-            button2.Margin = new Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(229, 48);
-            button2.TabIndex = 35;
-            button2.Text = "Edictar Registros ";
-            button2.UseVisualStyleBackColor = true;
-            button2.UseWaitCursor = true;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(192, 0, 0);
-            button1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonFace;
-            button1.Location = new Point(1165, 195);
-            button1.Margin = new Padding(4, 5, 4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 38);
-            button1.TabIndex = 33;
-            button1.Text = "Informe";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // txtbuscar
-            // 
-            txtbuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbuscar.Location = new Point(159, 141);
-            txtbuscar.Margin = new Padding(4, 5, 4, 5);
-            txtbuscar.Name = "txtbuscar";
-            txtbuscar.Size = new Size(297, 35);
-            txtbuscar.TabIndex = 32;
-            txtbuscar.TextChanged += txtbuscar_TextChanged;
-            // 
-            // btnbuscar
-            // 
-            btnbuscar.BackColor = SystemColors.ActiveCaption;
-            btnbuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnbuscar.Location = new Point(14, 138);
-            btnbuscar.Margin = new Padding(4, 5, 4, 5);
-            btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(126, 38);
-            btnbuscar.TabIndex = 31;
-            btnbuscar.Text = "Buscar";
-            btnbuscar.UseVisualStyleBackColor = false;
-            btnbuscar.Click += btnbuscar_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4, 5, 4, 5);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1332, 128);
-            panel2.TabIndex = 30;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 26F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(392, 37);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(524, 60);
-            label2.TabIndex = 0;
-            label2.Text = "Listado de Donaciones";
             // 
             // ID
             // 
@@ -271,6 +203,91 @@
             DonanteID.ReadOnly = true;
             DonanteID.Width = 150;
             // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(1082, 704);
+            button3.Margin = new Padding(4, 5, 4, 5);
+            button3.Name = "button3";
+            button3.Size = new Size(229, 48);
+            button3.TabIndex = 36;
+            button3.Text = "Eliminar Registros";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(4, 704);
+            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Name = "button2";
+            button2.Size = new Size(229, 48);
+            button2.TabIndex = 35;
+            button2.Text = "Edictar Registros ";
+            button2.UseVisualStyleBackColor = true;
+            button2.UseWaitCursor = true;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(192, 0, 0);
+            button1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Location = new Point(1165, 195);
+            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 38);
+            button1.TabIndex = 33;
+            button1.Text = "Informe";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // txtbuscar
+            // 
+            txtbuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtbuscar.Location = new Point(159, 141);
+            txtbuscar.Margin = new Padding(4, 5, 4, 5);
+            txtbuscar.Name = "txtbuscar";
+            txtbuscar.Size = new Size(297, 35);
+            txtbuscar.TabIndex = 32;
+            txtbuscar.TextChanged += txtbuscar_TextChanged;
+            // 
+            // btnbuscar
+            // 
+            btnbuscar.BackColor = SystemColors.ActiveCaption;
+            btnbuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnbuscar.Location = new Point(14, 138);
+            btnbuscar.Margin = new Padding(4, 5, 4, 5);
+            btnbuscar.Name = "btnbuscar";
+            btnbuscar.Size = new Size(126, 38);
+            btnbuscar.TabIndex = 31;
+            btnbuscar.Text = "Buscar";
+            btnbuscar.UseVisualStyleBackColor = false;
+            btnbuscar.Click += btnbuscar_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label2);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1332, 128);
+            panel2.TabIndex = 30;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 26F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(392, 37);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(524, 60);
+            label2.TabIndex = 0;
+            label2.Text = "Listado de Donaciones";
+            // 
             // FrmListaDonacion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -314,5 +331,6 @@
         private DataGridViewTextBoxColumn ColProposito;
         private DataGridViewTextBoxColumn ColEnvase;
         private DataGridViewTextBoxColumn DonanteID;
+        private Button btnInforme;
     }
 }
