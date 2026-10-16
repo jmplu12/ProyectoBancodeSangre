@@ -12,8 +12,8 @@ using SistemaBancodeSangre.DAL;
 namespace SistemaBancodeSangre.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261010180702_BDPRUEBA1")]
-    partial class BDPRUEBA1
+    [Migration("20260708011615_AgregarPermisos")]
+    partial class AgregarPermisos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,21 @@ namespace SistemaBancodeSangre.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("EntregaEntitySolicitudEntity", b =>
+                {
+                    b.Property<int>("EntregasID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SolicitudesID")
+                        .HasColumnType("int");
+
+                    b.HasKey("EntregasID", "SolicitudesID");
+
+                    b.HasIndex("SolicitudesID");
+
+                    b.ToTable("EntregaEntitySolicitudEntity");
+                });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.AnalisisEntity", b =>
                 {
@@ -85,48 +100,6 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     b.ToTable("Analisis");
                 });
 
-            modelBuilder.Entity("SistemaBancodeSangre.Entities.BitacoraEntity", b =>
-                {
-                    b.Property<int>("IdBitacora")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdBitacora"), 1L, 1);
-
-                    b.Property<string>("Accion")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Cargo")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<string>("Detalle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Entidad")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<int?>("EntidadId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NombreUsuario")
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.Property<int>("UsuarioID")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdBitacora");
-
-                    b.ToTable("Bitacora");
-                });
-
             modelBuilder.Entity("SistemaBancodeSangre.Entities.CitasEntity", b =>
                 {
                     b.Property<int>("ID")
@@ -174,50 +147,42 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("Analista")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("Apellido")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("CantidadSangre")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("int");
-
                     b.Property<int>("DonanteID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Envase")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("EvaluacionDonanteID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaDonacion")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("InventarioID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("NumeroSangre")
+                    b.Property<string>("analista")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Proposito")
+                    b.Property<double>("cantidadSangre")
+                        .HasColumnType("float");
+
+                    b.Property<string>("envase")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("proposito")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("TipoDeSangre")
+                    b.Property<string>("tipoDeSangre")
                         .IsRequired()
                         .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
@@ -226,10 +191,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     b.HasIndex("DonanteID");
 
-                    b.HasIndex("EvaluacionDonanteID");
-
-                    b.HasIndex("NumeroSangre")
-                        .IsUnique();
+                    b.HasIndex("InventarioID");
 
                     b.ToTable("Donaciones");
                 });
@@ -384,101 +346,29 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("CantidadEntregada")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EmpleadoID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EmpleadosEntityID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaEntrega")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("InventarioID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SolicitudID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TipoDeSangre")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("EmpleadoID");
-
-                    b.HasIndex("EmpleadosEntityID");
-
-                    b.HasIndex("InventarioID");
-
-                    b.HasIndex("SolicitudID");
-
-                    b.ToTable("Entregas");
-                });
-
-            modelBuilder.Entity("SistemaBancodeSangre.Entities.EvaluacionDonanteEntity", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
                     b.Property<int>("DonanteID")
                         .HasColumnType("int");
 
                     b.Property<int>("EmpleadoID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("FechaEvaluacion")
+                    b.Property<DateTime>("Fechaentrega")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("HaDonadoAnteriormente")
-                        .HasColumnType("bit");
+                    b.Property<int>("SolicitudID")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("HaTenidoCirugia")
-                        .HasColumnType("bit");
+                    b.Property<double>("cantidadEntregada")
+                        .HasColumnType("float");
 
-                    b.Property<string>("Observaciones")
+                    b.Property<string>("tipoDeSangre")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Peso")
-                        .HasPrecision(5, 2)
-                        .HasColumnType("decimal(5,2)");
-
-                    b.Property<string>("PresionArterial")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Resultado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Temperatura")
-                        .HasPrecision(5, 2)
-                        .HasColumnType("decimal(5,2)");
-
-                    b.Property<bool>("TieneEnfermedad")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TieneSintomas")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TomaMedicamentos")
-                        .HasColumnType("bit");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DonanteID");
-
                     b.HasIndex("EmpleadoID");
 
-                    b.ToTable("EvaluacionesDonantes");
+                    b.ToTable("Entregas");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.InventarioEntity", b =>
@@ -489,46 +379,19 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("CantidadDisponible")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CantidadInicial")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CodigoBolsa")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("EmpleadoID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("FechaDonacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaVencimiento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProcesamientoID")
+                    b.Property<int>("DonacionesID")
                         .HasColumnType("int");
 
                     b.Property<string>("TipoSangre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("cantidadDisponible")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("fechaVencimiento")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("ID");
-
-                    b.HasIndex("CodigoBolsa")
-                        .IsUnique()
-                        .HasFilter("[CodigoBolsa] IS NOT NULL");
-
-                    b.HasIndex("EmpleadoID");
-
-                    b.HasIndex("ProcesamientoID")
-                        .IsUnique();
 
                     b.ToTable("Inventario");
                 });
@@ -541,65 +404,55 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("ApellidoDonante")
+                    b.Property<string>("ApellidoDoante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<double>("CantidadM")
-                        .HasColumnType("float");
 
                     b.Property<string>("CodigoMuestra")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DonacionesID")
+                    b.Property<int>("DonanteID")
                         .HasColumnType("int");
-
-                    b.Property<int?>("DonanteID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DonantesEntityID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("FechaDonacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaToma")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("NombreDonante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Observacion")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
                     b.Property<string>("Responsable")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoSangre")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("cantidadM")
+                        .HasColumnType("float");
+
+                    b.Property<string>("edad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("fechaToma")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("presionAlterial")
+                        .HasColumnType("float");
+
+                    b.Property<double>("pulso")
+                        .HasColumnType("float");
+
+                    b.Property<string>("sexo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("temperatura")
+                        .HasColumnType("float");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DonacionesID");
-
                     b.HasIndex("DonanteID");
-
-                    b.HasIndex("DonantesEntityID");
 
                     b.ToTable("Muestras");
                 });
@@ -631,62 +484,32 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("Almacenado")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("AnalisisID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("ConcentradoGlobulosRojos")
-                        .HasColumnType("bit");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DonacionesID")
                         .HasColumnType("int");
-
-                    b.Property<string>("EstadoProceso")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("FechaProceso")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MuestraID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NumeroSangre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("Plaquetas")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Plasma")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Responsable")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<string>("TipoDeSangre")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                    b.Property<string>("estadoProceso")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("VolumenDN")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("float(10)");
+                    b.Property<DateTime>("fechaProceso")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("tipodeSangre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("volumenDN")
+                        .HasColumnType("float");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AnalisisID");
-
                     b.HasIndex("DonacionesID")
                         .IsUnique();
-
-                    b.HasIndex("MuestraID");
 
                     b.ToTable("Procesamientos");
                 });
@@ -699,8 +522,8 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
+                    b.Property<double>("cantidad")
+                        .HasColumnType("float");
 
                     b.Property<string>("cartaMedica")
                         .HasColumnType("nvarchar(max)");
@@ -710,12 +533,10 @@ namespace SistemaBancodeSangre.DAL.Migrations
                         .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("estadoSolicitud")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("exequatur")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("fechaDeSolicitud")
                         .HasColumnType("datetime2");
@@ -734,8 +555,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
                         .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("prioridad")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("proposito")
                         .IsRequired()
@@ -748,9 +568,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("tipoDeSangresolicitada")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -840,6 +658,21 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("EntregaEntitySolicitudEntity", b =>
+                {
+                    b.HasOne("SistemaBancodeSangre.Entities.EntregaEntity", null)
+                        .WithMany()
+                        .HasForeignKey("EntregasID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SistemaBancodeSangre.Entities.SolicitudEntity", null)
+                        .WithMany()
+                        .HasForeignKey("SolicitudesID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SistemaBancodeSangre.Entities.AnalisisEntity", b =>
                 {
                     b.HasOne("SistemaBancodeSangre.Entities.MuestraEntity", "Muestra")
@@ -868,14 +701,13 @@ namespace SistemaBancodeSangre.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SistemaBancodeSangre.Entities.EvaluacionDonanteEntity", "EvaluacionDonante")
-                        .WithMany()
-                        .HasForeignKey("EvaluacionDonanteID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("SistemaBancodeSangre.Entities.InventarioEntity", "Inventario")
+                        .WithMany("donaciones")
+                        .HasForeignKey("InventarioID");
 
                     b.Navigation("Donante");
 
-                    b.Navigation("EvaluacionDonante");
+                    b.Navigation("Inventario");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.DonantesEntity", b =>
@@ -883,7 +715,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", "Empleados")
                         .WithMany("Donantes")
                         .HasForeignKey("EmpleadosID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Empleados");
@@ -892,114 +724,34 @@ namespace SistemaBancodeSangre.DAL.Migrations
             modelBuilder.Entity("SistemaBancodeSangre.Entities.EntregaEntity", b =>
                 {
                     b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", "Empleado")
-                        .WithMany()
-                        .HasForeignKey("EmpleadoID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", null)
                         .WithMany("Entregas")
-                        .HasForeignKey("EmpleadosEntityID");
-
-                    b.HasOne("SistemaBancodeSangre.Entities.InventarioEntity", "Inventario")
-                        .WithMany()
-                        .HasForeignKey("InventarioID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SistemaBancodeSangre.Entities.SolicitudEntity", "Solicitud")
-                        .WithMany("Entregas")
-                        .HasForeignKey("SolicitudID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Empleado");
-
-                    b.Navigation("Inventario");
-
-                    b.Navigation("Solicitud");
-                });
-
-            modelBuilder.Entity("SistemaBancodeSangre.Entities.EvaluacionDonanteEntity", b =>
-                {
-                    b.HasOne("SistemaBancodeSangre.Entities.DonantesEntity", "Donante")
-                        .WithMany("EvaluacionesDonantes")
-                        .HasForeignKey("DonanteID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", "Empleado")
-                        .WithMany("EvaluacionesDonantes")
                         .HasForeignKey("EmpleadoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Donante");
-
                     b.Navigation("Empleado");
-                });
-
-            modelBuilder.Entity("SistemaBancodeSangre.Entities.InventarioEntity", b =>
-                {
-                    b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", "Empleado")
-                        .WithMany("Inventarios")
-                        .HasForeignKey("EmpleadoID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SistemaBancodeSangre.Entities.ProcesamientoDeSangreEntity", "Procesamiento")
-                        .WithOne()
-                        .HasForeignKey("SistemaBancodeSangre.Entities.InventarioEntity", "ProcesamientoID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Empleado");
-
-                    b.Navigation("Procesamiento");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.MuestraEntity", b =>
                 {
-                    b.HasOne("SistemaBancodeSangre.Entities.DonacionesEntity", "Donacion")
-                        .WithMany()
-                        .HasForeignKey("DonacionesID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("SistemaBancodeSangre.Entities.DonantesEntity", "Donante")
-                        .WithMany()
-                        .HasForeignKey("DonanteID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SistemaBancodeSangre.Entities.DonantesEntity", null)
                         .WithMany("Muestra")
-                        .HasForeignKey("DonantesEntityID");
-
-                    b.Navigation("Donacion");
+                        .HasForeignKey("DonanteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Donante");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.ProcesamientoDeSangreEntity", b =>
                 {
-                    b.HasOne("SistemaBancodeSangre.Entities.AnalisisEntity", "Analisis")
-                        .WithMany()
-                        .HasForeignKey("AnalisisID");
-
                     b.HasOne("SistemaBancodeSangre.Entities.DonacionesEntity", "Donaciones")
-                        .WithOne("ProcesamientoDeSangre")
+                        .WithOne("ProcesamientoDeSangreEntity")
                         .HasForeignKey("SistemaBancodeSangre.Entities.ProcesamientoDeSangreEntity", "DonacionesID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SistemaBancodeSangre.Entities.MuestraEntity", "Muestra")
-                        .WithMany()
-                        .HasForeignKey("MuestraID");
-
-                    b.Navigation("Analisis");
-
                     b.Navigation("Donaciones");
-
-                    b.Navigation("Muestra");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.UsuarioPermisosEntity", b =>
@@ -1026,7 +778,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     b.HasOne("SistemaBancodeSangre.Entities.EmpleadosEntity", "Empleados")
                         .WithOne("Usuarios")
                         .HasForeignKey("SistemaBancodeSangre.Entities.UsuariosEntity", "EmpleadoID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Empleados");
@@ -1034,7 +786,7 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.DonacionesEntity", b =>
                 {
-                    b.Navigation("ProcesamientoDeSangre");
+                    b.Navigation("ProcesamientoDeSangreEntity");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.DonantesEntity", b =>
@@ -1042,8 +794,6 @@ namespace SistemaBancodeSangre.DAL.Migrations
                     b.Navigation("Citas");
 
                     b.Navigation("Donaciones");
-
-                    b.Navigation("EvaluacionesDonantes");
 
                     b.Navigation("Muestra");
                 });
@@ -1054,11 +804,12 @@ namespace SistemaBancodeSangre.DAL.Migrations
 
                     b.Navigation("Entregas");
 
-                    b.Navigation("EvaluacionesDonantes");
-
-                    b.Navigation("Inventarios");
-
                     b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("SistemaBancodeSangre.Entities.InventarioEntity", b =>
+                {
+                    b.Navigation("donaciones");
                 });
 
             modelBuilder.Entity("SistemaBancodeSangre.Entities.MuestraEntity", b =>
@@ -1069,11 +820,6 @@ namespace SistemaBancodeSangre.DAL.Migrations
             modelBuilder.Entity("SistemaBancodeSangre.Entities.PermisosEntity", b =>
                 {
                     b.Navigation("UsuarioPermisos");
-                });
-
-            modelBuilder.Entity("SistemaBancodeSangre.Entities.SolicitudEntity", b =>
-                {
-                    b.Navigation("Entregas");
                 });
 #pragma warning restore 612, 618
         }
